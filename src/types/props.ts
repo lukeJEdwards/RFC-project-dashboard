@@ -1,8 +1,11 @@
-import { connetion } from "@/types/enums";
+export interface svgProps {
+  fill?: string;
+  stroke?: string;
+}
 
-export interface NFCProps {
-  count: number;
+export interface modelProps {
   id: string;
-  videoTitle: string;
-  connection: connetion;
+  tagId: string;
+  statusColor?: string;
+  videoTitle?: string;
 }

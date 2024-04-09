@@ -1,8 +1,8 @@
 <template>
-  <article @click="open = !open" class="NFC">
+  <article @click="open = !open">
     <section>
-      <h3>RFC reader {{ props.id }}</h3>
-      <signalIcon :stroke="props.statusColor" />
+      <h3>Pi zero - {{ props.id }}</h3>
+      <Pi :fill="props.statusColor" />
     </section>
     <section v-show="open">
       <p>{{ props.tagId }}</p>
@@ -15,8 +15,8 @@
 import type { Ref } from "vue";
 import type { modelProps } from "@/types/props";
 
+import Pi from "@/components/icons/pi.vue";
 import { ref } from "vue";
-import signalIcon from "@/components/icons/signal.vue";
 
 const open: Ref<boolean> = ref(false);
 
