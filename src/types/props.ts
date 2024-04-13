@@ -1,11 +1,13 @@
+import type { modualType } from "./enums";
+
 export interface svgProps {
   fill?: string;
   stroke?: string;
 }
 
-export interface modelProps {
+export interface modualProps {
   id: string;
   tagId: string;
-  statusColor?: string;
+  modualType: modualType;
   videoTitle?: string;
 }

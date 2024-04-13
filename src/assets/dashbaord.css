@@ -4,7 +4,7 @@
   width: 100%;
 }
 
-.NFC {
+.nfc {
   display: inline-flex;
   padding: 2rem;
   flex-direction: column;
@@ -12,16 +12,16 @@
   height: fit-content;
   transition: height 300ms;
 
-  border-radius: var(--Roundness-Round-Inside, 0.375rem);
-  border: 1px solid var(--Stroke-Dark-Base, #323539);
-  background: var(--Background-Dark-Base-Second, #252525);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--Stroke-Base);
+  background: var(--Background-Second);
 }
 
-.NFC:hover {
+.nfc:hover {
   cursor: pointer;
 }
 
-.NFC section:first-child {
+.nfc section:first-child {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,10 +29,13 @@
   color: white;
 }
 
-.NFC section p {
+.nfc section p {
   margin: 0;
 }
 
-.NFC section p:first-child {
+.nfc section p:first-child {
   margin-bottom: 8px;
+}
+
+.pi-zero {
 }

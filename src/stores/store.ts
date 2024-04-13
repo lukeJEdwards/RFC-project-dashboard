@@ -1,14 +1,14 @@
 import { computed, reactive } from "vue";
 import { defineStore } from "pinia";
 
-import type { reader } from "@/types/types";
+import type { modual } from "@/types/types";
 
-export const useReaderStore = defineStore("Readers", () => {
-  const readers: Map<String, reader> = reactive(new Map<String, reader>());
+export const useStore = defineStore("moduals", () => {
+  const readers: Map<String, modual> = reactive(new Map<String, modual>());
 
   const readerCount = computed(() => readers.size);
 
-  function addReader(reader: reader) {
+  function addReader(reader: modual) {
     if (readers.has(reader.id)) {
       console.log("Reader id already added");
       return;
@@ -17,7 +17,7 @@ export const useReaderStore = defineStore("Readers", () => {
     readers.set(reader.id, reactive(reader));
   }
 
-  function removeReader(reader: reader) {
+  function removeReader(reader: modual) {
     if (!readers.has(reader.id)) {
       console.log("Reader doesn't exist");
       return;

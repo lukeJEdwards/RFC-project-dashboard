@@ -11,6 +11,8 @@
   --warning: #efa22f;
   --error: #e33b32;
   --info: #0a77ff;
+
+  --border-radius: 0.375rem;
 }
 
 *::before,

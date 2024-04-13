@@ -1,6 +1,7 @@
-import type { connection } from "./enums";
+import type { connection, modualType } from "./enums";
 
-export interface reader {
+export interface modual {
+  type: modualType;
   id: string;
   status: connection;
   tagId: string;
