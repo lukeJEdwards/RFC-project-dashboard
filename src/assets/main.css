@@ -4,12 +4,18 @@
 
 #app {
   display: flex;
-  height: 100vh;
   margin: 0 auto;
   font-weight: normal;
 }
 
 .viewport {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 0.5fr repeat(5, 1fr);
+  grid-column-gap: 32px;
+  grid-row-gap: 32px;
   width: 100%;
-  margin: 2rem;
+  height: 100vh;
+  padding: 0 2rem;
+  overflow-y: scroll;
 }

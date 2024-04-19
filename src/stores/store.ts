@@ -1,29 +1,39 @@
-import { computed, reactive } from "vue";
+import { computed, reactive, ref, type Ref } from "vue";
 import { defineStore } from "pinia";
 
 import type { modual } from "@/types/types";
+import { modualType } from "@/types/enums";
 
 export const useStore = defineStore("moduals", () => {
-  const readers: Map<String, modual> = reactive(new Map<String, modual>());
+  const modules: Array<modual> = reactive([]);
 
-  const readerCount = computed(() => readers.size);
+  const readers = computed(() =>
+    modules.filter((v) => v.type == modualType.NFC)
+  );
 
-  function addReader(reader: modual) {
-    if (readers.has(reader.id)) {
-      console.log("Reader id already added");
+  const PiZeros = computed(() =>
+    modules.filter((v) => v.type == modualType.PiZero)
+  );
+
+  function addModule(module: modual): void {
+    if (modules.findIndex((value) => value.id == module.id) > -1) {
+      console.log("Object already added or ID taken");
+      return;
+    }
+    modules.push(module);
+  }
+
+  function removeModule(module: modual): void {
+    let index: number = modules.findIndex((value) => value.id == module.id);
+
+    if (index == -1) {
+      console.log("Object wasn't found");
       return;
     }
 
-    readers.set(reader.id, reactive(reader));
+    modules.splice(index, 1);
+    console.log("Object Removed");
   }
 
-  function removeReader(reader: modual) {
-    if (!readers.has(reader.id)) {
-      console.log("Reader doesn't exist");
-      return;
-    }
-    readers.delete(reader.id);
-  }
-
-  return { readers, readerCount, addReader, removeReader };
+  return { modules, readers, PiZeros, addModule, removeModule };
 });

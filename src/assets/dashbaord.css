@@ -1,27 +1,39 @@
+.dash-board-title {
+  grid-area: 1 / 1 / 2 / 2;
+}
 .readers {
-  display: flex;
-  gap: 2rem;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1, 1fr;
+  grid-column-gap: 32px;
+  grid-row-gap: 32px;
+
+  grid-area: 2 / 1 / 3 / 5;
 }
 
-.nfc {
-  display: inline-flex;
-  padding: 2rem;
+.pi {
+  display: grid;
+  grid-template-columns: 1, 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 32px;
+  grid-row-gap: 32px;
+
+  grid-area: 3 / 3 / 7 / 5;
+}
+
+.module {
+  display: flex;
+  padding: 1rem 2rem;
   flex-direction: column;
-  gap: 38px;
-  height: fit-content;
-  transition: height 300ms;
+  height: max-content;
+  flex-grow: 1;
 
   border-radius: var(--border-radius);
   border: 1px solid var(--Stroke-Base);
   background: var(--Background-Second);
 }
 
-.nfc:hover {
-  cursor: pointer;
-}
-
-.nfc section:first-child {
+.module section:first-child {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,13 +41,32 @@
   color: white;
 }
 
-.nfc section p {
+.module section:first-child h3 {
+  font-weight: 500;
+  font-size: medium;
+}
+
+.module section p {
   margin: 0;
 }
 
-.nfc section p:first-child {
+.module section p:first-child {
   margin-bottom: 8px;
 }
 
+.nfc:hover {
+  cursor: pointer;
+}
 .pi-zero {
+  height: auto;
+}
+.log-console {
+  display: flex;
+  flex: calc(50% - 4rem);
+  padding: 2rem;
+  grid-area: 3 / 1 / 7 / 3;
+
+  border-radius: var(--border-radius);
+  border: 1px solid var(--Stroke-Base);
+  background: var(--Background-Second);
 }

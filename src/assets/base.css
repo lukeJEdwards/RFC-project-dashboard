@@ -22,7 +22,6 @@
 }
 
 body {
-  min-height: 100vh;
   color: var(--Text-Second);
   background: var(--Background-Main);
   transition: color 0.5s, background-color 0.5s;

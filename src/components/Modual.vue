@@ -1,7 +1,11 @@
 <template>
-  <article @click="open = !open" :class="{ nfc: isNFC, 'pi-zero': isPiZero }">
+  <article
+    @click="dropDownHandler"
+    class="module"
+    :class="{ nfc: isNFC, 'pi-zero': isPiZero }"
+  >
     <section>
-      <h3>RFC reader {{ props.id }}</h3>
+      <h3>{{ moduleTitle }}</h3>
       <slot></slot>
     </section>
     <Transition>
@@ -20,8 +24,23 @@ import { ref, computed } from "vue";
 import { modualType } from "@/types/enums";
 
 const props = defineProps<modualProps>();
-const open: Ref<boolean> = ref(false);
 
 const isNFC = computed(() => props.modualType == modualType.NFC);
 const isPiZero = computed(() => props.modualType == modualType.PiZero);
+
+const moduleTitle = computed(() => {
+  switch (props.modualType) {
+    case modualType.NFC:
+      return `RFC reader ${props.id}`;
+    case modualType.PiZero:
+      return `Pi Zero - ${props.id}`;
+  }
+});
+
+const open: Ref<boolean> = ref(isPiZero.value);
+function dropDownHandler() {
+  if (isNFC.value) {
+    open.value = !open.value;
+  }
+}
 </script>
