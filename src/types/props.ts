@@ -1,5 +1,10 @@
 import type { modualType } from "./enums";
 
+export interface titleProps {
+  title: string;
+  subTitle?: string;
+}
+
 export interface svgProps {
   fill?: string;
   stroke?: string;
