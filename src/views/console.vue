@@ -25,5 +25,3 @@ function classType(type: Logging) {
   return Logging[type].toLocaleLowerCase();
 }
 </script>
-
-<style scoped></style>

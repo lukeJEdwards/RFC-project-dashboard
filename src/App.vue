@@ -25,5 +25,3 @@ watch(shiftEnter, (v) => {
   if (v) toggleFullscreen();
 });
 </script>
-
-<style scoped></style>
