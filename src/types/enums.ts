@@ -1,12 +1,12 @@
 export enum connection {
-  connected,
-  connecting,
-  disconnected,
+  CONNECTED,
+  CONNETING,
+  DISCONNECTED,
 }
 
 export enum modualType {
   NFC,
-  PiZero,
+  PIZERO,
 }
 
 export enum Logging {

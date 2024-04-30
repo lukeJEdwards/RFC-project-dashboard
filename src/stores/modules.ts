@@ -1,4 +1,4 @@
-import { computed, reactive } from "vue";
+import { computed, reactive, ref, type Ref } from "vue";
 import { defineStore } from "pinia";
 
 import type { modual } from "@/types/types";
@@ -6,9 +6,16 @@ import { modualType } from "@/types/enums";
 
 export const useModualStore = defineStore("moduals", () => {
   const modules: Array<modual> = reactive([]);
+  const filter: Ref<string> = ref("");
 
   const NFC = computed(() => modules.filter((v) => v.type == modualType.NFC));
-  const Pi = computed(() => modules.filter((v) => v.type == modualType.PiZero));
+  const PI = computed(() => modules.filter((v) => v.type == modualType.PIZERO));
+
+  const loopList = computed<modual[]>(() =>
+    modules.filter(
+      (v) => v.id.includes(filter.value) || v.tagId.includes(filter.value)
+    )
+  );
 
   function addModule(module: modual): void {
     if (modules.findIndex((value) => value.id == module.id) > -1) {
@@ -30,5 +37,5 @@ export const useModualStore = defineStore("moduals", () => {
     console.log("Object Removed");
   }
 
-  return { NFC, Pi, addModule, removeModule };
+  return { filter, NFC, PI, loopList, addModule, removeModule };
 });

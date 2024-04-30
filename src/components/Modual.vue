@@ -31,7 +31,7 @@ const moduleTitle = computed(() => {
   switch (props.modualType) {
     case modualType.NFC:
       return `RFC reader ${props.id}`;
-    case modualType.PiZero:
+    case modualType.PIZERO:
       return `Pi Zero - ${props.id}`;
   }
 });
@@ -40,7 +40,7 @@ const moduleIcon = computed(() => {
   switch (props.modualType) {
     case modualType.NFC:
       return signal;
-    case modualType.PiZero:
+    case modualType.PIZERO:
       return pi;
   }
 });

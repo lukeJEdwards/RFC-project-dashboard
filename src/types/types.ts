@@ -5,6 +5,7 @@ export interface modual {
   id: string;
   status: connection;
   tagId: string;
+  videoTitle?: string;
 }
 
 export interface log {
