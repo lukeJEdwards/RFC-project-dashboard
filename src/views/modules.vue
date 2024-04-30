@@ -60,6 +60,7 @@ for (let i = 0; i < 4; i++) {
     id: (i + 4).toString(),
     status: connection.CONNECTED,
     tagId: getHexString(),
+    videoTitle: "video.mp4",
   });
 }
 
