@@ -1,0 +1,38 @@
+@import "./base.css";
+@import "./modules.css";
+@import "./dashboard.css";
+@import "./log.css";
+
+.viewport {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  width: 100%;
+  max-height: 100vh;
+}
+
+nav {
+  display: flex;
+  margin-bottom: 32px;
+}
+.router-link-active {
+  background: var(--Background-Second);
+  color: #f9f9f9;
+}
+ul {
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+}
+a {
+  padding: 10px 16px;
+  border-radius: 6px;
+  color: var(--Text-Second);
+  text-decoration: none;
+
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+}

@@ -1,5 +1,7 @@
 <template>
-  <div class="log-console">Log conolse</div>
+  <div>Fullscreen</div>
 </template>
 
 <script setup lang="ts"></script>
+
+<style scoped></style>

@@ -1,0 +1,61 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  flex: 1 0 0;
+  padding: 16px 16px 16px 64px;
+
+  border-radius: 6px;
+  border: 1px solid var(--Stroke-Base);
+}
+.console {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  flex: 1 0 0;
+  gap: 4px;
+
+  overflow-y: auto;
+}
+
+.console p {
+  margin: 0;
+
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+.console p::first-letter {
+  text-transform: capitalize;
+}
+
+.console .info::before {
+  color: #0a77ff;
+  content: "Info: ";
+}
+
+.console .success::before {
+  color: #27b973;
+  content: "Success: ";
+}
+.console .warning::before {
+  color: #efa22f;
+  content: "Warning: ";
+}
+.console .error::before {
+  color: #e33b32;
+  content: "Error: ";
+}
+
+.console .critical {
+  color: #e33b32;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+}
+.console .critical::before {
+  content: "CRITICAL: ";
+}

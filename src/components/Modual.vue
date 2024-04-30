@@ -1,33 +1,31 @@
 <template>
-  <article
-    @click="open = !open"
-    class="module"
-    :class="{ nfc: isNFC, 'pi-zero': isPiZero }"
-  >
-    <section>
-      <h3>{{ moduleTitle }}</h3>
-      <slot></slot>
+  <article @click="open = !open" class="module">
+    <section class="title">
+      <p>{{ moduleTitle }}</p>
+      <component :is="moduleIcon" stroke="#27B973" />
     </section>
     <Transition>
-      <section v-show="open">
-        <p>{{ props.tagId }}</p>
-        <p>{{ props.videoTitle }}</p>
+      <section v-show="open" class="info">
+        <p>ID: {{ props.tagId }}</p>
+        <p>Video: {{ props.videoTitle }}</p>
       </section>
     </Transition>
   </article>
 </template>
 
 <script setup lang="ts">
-import type { Ref } from "vue";
+import { ref, computed, type Ref } from "vue";
+
+import pi from "./icons/pi.vue";
+import signal from "./icons/signal.vue";
+
 import type { modualProps } from "@/types/props";
-import { ref, computed } from "vue";
 import { modualType } from "@/types/enums";
 
-const props = defineProps<modualProps>();
+const props = withDefaults(defineProps<modualProps>(), {
+  videoTitle: "Null",
+});
 const open: Ref<boolean> = ref(false);
-
-const isNFC = computed(() => props.modualType == modualType.NFC);
-const isPiZero = computed(() => props.modualType == modualType.PiZero);
 
 const moduleTitle = computed(() => {
   switch (props.modualType) {
@@ -35,6 +33,15 @@ const moduleTitle = computed(() => {
       return `RFC reader ${props.id}`;
     case modualType.PiZero:
       return `Pi Zero - ${props.id}`;
+  }
+});
+
+const moduleIcon = computed(() => {
+  switch (props.modualType) {
+    case modualType.NFC:
+      return signal;
+    case modualType.PiZero:
+      return pi;
   }
 });
 </script>

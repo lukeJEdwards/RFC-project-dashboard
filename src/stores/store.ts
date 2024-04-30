@@ -1,39 +1,14 @@
-import { computed, reactive, ref, type Ref } from "vue";
+import { computed, ref, type Ref } from "vue";
 import { defineStore } from "pinia";
 
-import type { modual } from "@/types/types";
-import { modualType } from "@/types/enums";
+export const useStore = defineStore("store", () => {
+  const fullscreen: Ref<boolean> = ref(false);
 
-export const useStore = defineStore("moduals", () => {
-  const modules: Array<modual> = reactive([]);
+  const hideElement = computed(() => !fullscreen.value);
 
-  const readers = computed(() =>
-    modules.filter((v) => v.type == modualType.NFC)
-  );
-
-  const PiZeros = computed(() =>
-    modules.filter((v) => v.type == modualType.PiZero)
-  );
-
-  function addModule(module: modual): void {
-    if (modules.findIndex((value) => value.id == module.id) > -1) {
-      console.log("Object already added or ID taken");
-      return;
-    }
-    modules.push(module);
+  function toggleFullscreen() {
+    fullscreen.value = !fullscreen.value;
   }
 
-  function removeModule(module: modual): void {
-    let index: number = modules.findIndex((value) => value.id == module.id);
-
-    if (index == -1) {
-      console.log("Object wasn't found");
-      return;
-    }
-
-    modules.splice(index, 1);
-    console.log("Object Removed");
-  }
-
-  return { modules, readers, PiZeros, addModule, removeModule };
+  return { fullscreen, hideElement, toggleFullscreen };
 });

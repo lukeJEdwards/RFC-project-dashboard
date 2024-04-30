@@ -13,5 +13,6 @@ export enum Logging {
   CRITICAL,
   ERROR,
   WARNING,
+  SUCCESS,
   INFO,
 }

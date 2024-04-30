@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import DashBoard from "@/views/dashboard.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,17 +6,18 @@ const router = createRouter({
     {
       path: "/",
       name: "dashboard",
-      component: DashBoard,
+      components: {
+        default: () => import("@/views/dashboard.vue"),
+        modules: () => import("@/views/modules.vue"),
+      },
     },
     {
-      path: "/database",
-      name: "database",
-      component: () => import("@/views/database.vue"),
-    },
-    {
-      path: "/analytics",
-      name: "analytics",
-      component: () => import("@/views/analytics.vue"),
+      path: "/console",
+      name: "console",
+      components: {
+        default: () => import("@/views/console.vue"),
+        modules: () => import("@/views/modules.vue"),
+      },
     },
   ],
 });

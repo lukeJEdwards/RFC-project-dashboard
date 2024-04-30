@@ -1,0 +1,55 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dashboard svg:hover {
+  cursor: pointer;
+}
+
+.dashboard .bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.dashboard .bar p {
+  color: #979aa0;
+
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+.dashboard .bar .title {
+  color: #f9f9f9;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.dashboard .screens {
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.dashboard .screen {
+  display: flex;
+  width: calc(50% - 32px);
+  height: calc(50% - 32px);
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  align-self: stretch;
+
+  border-radius: 6px;
+  border: 1px solid var(--Stroke-Base);
+  background: var(--Background-Second);
+}
